@@ -1,7 +1,7 @@
 # lzasm
 lzasm is a lightweight runtime assembler written in C++.
 
-Its main purpose is to assemble the decompression code in [gbaic](http://github.com/tom42/gbaic).
+Its main purpose is to assemble the decompression code in [shrinkler-gba](http://github.com/tom42/shrinkler-gba).
 
 Currently, only ARMv4T Thumb instructions are supported.
 Moreover, only little endian CPUs are supported.

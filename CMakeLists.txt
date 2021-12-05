@@ -166,7 +166,7 @@ include(CPack)
 # Unit tests
 ################################################################################
 
-if(IS_MAIN_PROJECT)
+if((IS_MAIN_PROJECT OR lzasm_BUILD_TESTING) AND BUILD_TESTING)
 
   # Search for boost headers only, but not the libraries.
   # We'll compile the unit test framework ourselves as part of the unit tests.

@@ -295,3 +295,17 @@ thumb_start:
 ```
 
 Obviously the original value of `r` is lost.
+
+## Functions
+
+### current_lc
+
+The `current_lc` function returns the current location counter:
+
+```c++
+divided_thumb_assembler a;
+// Emit some code
+a.nop();
+a.nop();
+assert(a.current_lc() == 42);
+```

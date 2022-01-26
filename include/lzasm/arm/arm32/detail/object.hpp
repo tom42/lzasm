@@ -400,7 +400,7 @@ private:
 
     static void check_alignment_is_in_range(address_t alignment)
     {
-        if ((alignment < 0) || (alignment > max_alignment))
+        if (alignment > max_alignment)
         {
             report_error("Alignment out of range");
         }

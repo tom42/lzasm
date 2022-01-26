@@ -31,7 +31,7 @@ set(
   divided_thumb_assembler_test.alu_operation.cpp
   divided_thumb_assembler_test.arm_code_generation_pseudo_instructions.cpp
   divided_thumb_assembler_test.conditional_branch.cpp
-  divided_thumb_assembler_test.current_pc.cpp
+  divided_thumb_assembler_test.current_lc.cpp
   divided_thumb_assembler_test.data_definition_directives.cpp
   divided_thumb_assembler_test.high_register_operation.cpp
   divided_thumb_assembler_test.immediate_operation.cpp

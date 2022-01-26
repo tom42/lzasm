@@ -47,9 +47,9 @@ class basic_divided_thumb_assembler final
 public:
     using immediate = detail::immediate<TSymbolName>;
 
-    address_t current_pc() const
+    address_t current_lc() const
     {
-        return obj.current_pc();
+        return obj.current_lc();
     }
 
     bytevector link(address_t origin)

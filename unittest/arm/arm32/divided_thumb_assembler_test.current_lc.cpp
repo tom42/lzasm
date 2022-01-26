@@ -31,23 +31,23 @@ using namespace ::lzasm::arm::arm32;
 
 BOOST_AUTO_TEST_SUITE(divided_thumb_assembler_test)
 
-    BOOST_AUTO_TEST_SUITE(current_pc)
+    BOOST_AUTO_TEST_SUITE(current_lc)
 
-        BOOST_AUTO_TEST_CASE(current_pc_is_zero_after_construction)
+        BOOST_AUTO_TEST_CASE(current_lc_is_zero_after_construction)
         {
             divided_thumb_assembler a;
-            BOOST_TEST(a.current_pc() == 0u);
+            BOOST_TEST(a.current_lc() == 0u);
         }
 
-        BOOST_AUTO_TEST_CASE(current_pc_increments_when_code_is_emitted)
+        BOOST_AUTO_TEST_CASE(current_lc_increments_when_code_is_emitted)
         {
             divided_thumb_assembler a;
 
             a.nop();
-            BOOST_TEST(a.current_pc() == 2u);
+            BOOST_TEST(a.current_lc() == 2u);
 
             a.arm_branch(0);
-            BOOST_TEST(a.current_pc() == 6u);
+            BOOST_TEST(a.current_lc() == 6u);
         }
 
     BOOST_AUTO_TEST_SUITE_END()

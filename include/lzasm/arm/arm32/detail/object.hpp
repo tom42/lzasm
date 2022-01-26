@@ -74,6 +74,11 @@ public:
         }
     }
 
+    address_t current_pc() const
+    {
+        return static_cast<address_t>(data.size());
+    }
+
     void emit8(uint_fast8_t u8)
     {
         data.push_back(u8 & 0xff);
@@ -175,11 +180,6 @@ public:
     bytevector to_bytevector() const { return data; }
 
 private:
-    address_t current_pc() const
-    {
-        return static_cast<address_t>(data.size());
-    }
-
     auto get_name_of_new_or_existing_literal(const immediate<TSymbolName>& imm)
     {
         auto iter = std::find_if(literals.begin(), literals.end(), [&](const auto& literal) { return literal.value == imm; });

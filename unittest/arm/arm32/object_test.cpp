@@ -199,6 +199,24 @@ BOOST_FIXTURE_TEST_SUITE(object_test, object_test_fixture)
 
     BOOST_AUTO_TEST_SUITE_END()
 
+    BOOST_AUTO_TEST_SUITE(current_pc)
+
+        BOOST_AUTO_TEST_CASE(current_pc_is_zero_after_construction)
+        {
+            BOOST_TEST(obj.current_pc() == 0u);
+        }
+
+        BOOST_AUTO_TEST_CASE(current_pc_increments_when_code_is_emitted)
+        {
+            obj.emit8(0);
+            BOOST_TEST(obj.current_pc() == 1u);
+
+            obj.emit32(0);
+            BOOST_TEST(obj.current_pc() == 5u);
+        }
+
+    BOOST_AUTO_TEST_SUITE_END()
+
     BOOST_AUTO_TEST_SUITE(emit)
 
         BOOST_AUTO_TEST_CASE(emit8)

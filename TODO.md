@@ -1,8 +1,6 @@
 # Things to do
-* Version 0.3.0
-  * Give divided_thumb_assembler a virtual destructor
-    * This allows for shorthand notation when deriving a special assembler, e.g. mov(r0, r1) instead of a.mov(r0, r1)
-    * Update documentation: just a short section on that, leave most of documentation in current state, using using a.xxx() syntax
+* Version 0.4.0
+  * Might have to introduce an arm_push directive. Obviously this is getting out of hands, but I need it for shrinkler-gba.
 * Handle address overflows
   * In `object::emit8`: when the object size exceeds 4GB
   * Additions and subtractions in `object::get_relative_address`

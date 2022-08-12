@@ -42,10 +42,12 @@ namespace lzasm::arm::arm32
 {
 
 template <typename TSymbolName>
-class basic_divided_thumb_assembler final
+class basic_divided_thumb_assembler
 {
 public:
     using immediate = detail::immediate<TSymbolName>;
+
+    virtual ~basic_divided_thumb_assembler() = default;
 
     address_t current_lc() const
     {

@@ -61,6 +61,26 @@ a
 bytevector program = a.link(0x1000);
 ```
 
+## Deriving from `divided_thumb_assembler`
+Another technique is to derive from `divided_thumb_assembler`.
+To some people this might look better than call chaining:
+
+```c++
+class my_program : public divided_thumb_assembler
+{
+public:
+    my_program()
+    {
+        add(r0, r1, r2);
+        mul(r3, r4);
+        add(r5, 42);
+    }
+};
+
+// And then somewhere in your program, for example:
+bytevector code = my_program().link(0);
+```
+
 ## Labels
 By default, label names are of type `std::string`:
 
@@ -78,7 +98,7 @@ a.label(string("some_label"));  // Label definition
 ```
 
 Implicit conversion from `const char*` is not supported.
-If it was, the integer literal `0` would be ambigous, because it could be
+If it was, the integer literal `0` would be ambiguous, because it could be
 either a pointer or an integer:
 
 ```c++
@@ -161,9 +181,9 @@ a.and_(r0, r1);
 
 // Register lists do not use braces.
 a.push(r0);                     // push {r0}
-a.push(r0, r3 - r5, lr);        // push { r0, r3 - r5, lr };
+a.push(r0, r3 - r5, lr);        // push {r0, r3 - r5, lr};
 a.pop(r0 - r3, r5 - r7);        // pop {r0 - r3, r5 - r7}
-a.pop(r4, pc);                  // pop {r4, pc };
+a.pop(r4, pc);                  // pop {r4, pc};
 
 // In C++, ! is right-associative, so instead of reg!, !reg must be written.
 a.ldmia(!r0, r1 - r4);          // ldmia r0!, {r1 - r4}

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Thomas Mathys
+SPDX-License-Identifier: MIT
+lzasm: a runtime assembler
+-->
+
 # lzasm
 lzasm is a lightweight runtime assembler written in C++.
 

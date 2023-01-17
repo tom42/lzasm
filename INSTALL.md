@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Thomas Mathys
+SPDX-License-Identifier: MIT
+lzasm: a runtime assembler
+-->
+
 # lzasm installation
 
 lzasm is a header-only library, so you just need to point your compiler at its include directory.

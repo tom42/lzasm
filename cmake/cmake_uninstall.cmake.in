@@ -1,5 +1,13 @@
+# SPDX-FileCopyrightText: Copyright 2000-2023 Kitware, Inc. and Contributors
+# SPDX-License-Identifier: BSD-3-Clause
+#
 # Create uninstall target with cmake.
-# From https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake
+#
+# Taken https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake.
+# Quote from https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#what-is-its-license:
+#
+#   "CMake is distributed under the OSI-approved BSD 3-clause License. See the licensing page for details.
+#   The snippets on this wiki are provided under the same license."
 
 if(NOT EXISTS "@CMAKE_BINARY_DIR@/install_manifest.txt")
   message(FATAL_ERROR "Cannot find install manifest: @CMAKE_BINARY_DIR@/install_manifest.txt")

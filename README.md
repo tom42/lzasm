@@ -9,6 +9,9 @@ Moreover, only little endian CPUs are supported.
 The name lzasm stands for Laufzeitassembler - runtime assembler in German.
 lzasm has nothing to do with LZASM (Lazy Assembler, some sort of TASM clone/replacement).
 
+# License
+lzasm is licensed under the MIT license.
+
 # Supported platforms
 
 The production code of lzasm uses C++20 and depends on the C++ Standard Library only.

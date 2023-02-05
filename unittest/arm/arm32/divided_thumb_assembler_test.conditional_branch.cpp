@@ -36,6 +36,12 @@ BOOST_AUTO_TEST_SUITE(divided_thumb_assembler_test)
             CHECK(ble(0), H(0xddfe));
         }
 
+        BOOST_AUTO_TEST_CASE(condition_code_aliases)
+        {
+            CHECK(bhs(0), H(0xd2fe));
+            CHECK(blo(0), H(0xd3fe));
+        }
+
         BOOST_AUTO_TEST_CASE(constant_with_zero_origin)
         {
             CHECK(beq(-252),    H(0xd080)); // Smallest negative relative address

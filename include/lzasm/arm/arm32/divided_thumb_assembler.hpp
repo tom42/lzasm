@@ -235,6 +235,8 @@ public:
     basic_divided_thumb_assembler& blt(const immediate& imm9) { return emit_conditional_branch(condition_code::lt, imm9); }
     basic_divided_thumb_assembler& bgt(const immediate& imm9) { return emit_conditional_branch(condition_code::gt, imm9); }
     basic_divided_thumb_assembler& ble(const immediate& imm9) { return emit_conditional_branch(condition_code::le, imm9); }
+    basic_divided_thumb_assembler& bhs(const immediate& imm9) { return bcs(imm9); }
+    basic_divided_thumb_assembler& blo(const immediate& imm9) { return bcc(imm9); }
 
     // ["b", "#RelS*2", "T16", "1110|0|RelS:11", "ARMv4T+ IT=OUT|LAST"]
     basic_divided_thumb_assembler& b(const immediate& imm12)

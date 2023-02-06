@@ -18,6 +18,37 @@ BOOST_AUTO_TEST_SUITE(divided_thumb_assembler_test)
 
     BOOST_AUTO_TEST_SUITE(data_definition_directives)
 
+        BOOST_AUTO_TEST_SUITE(asciz)
+
+            BOOST_AUTO_TEST_CASE(from_string)
+            {
+                // The overload taking std::string delegates to the overload taking iterators,
+                // so we can do most of the testing over there.
+                CHECK(asciz(std::string("")), B(0));
+                CHECK(asciz(std::string("abc")), B('a', 'b', 'c', 0));
+            }
+
+            BOOST_AUTO_TEST_CASE(from_char_pointer)
+            {
+                CHECK(asciz(""), B(0));
+                CHECK(asciz("abc"), B('a', 'b', 'c', 0));
+            }
+
+            BOOST_AUTO_TEST_CASE(from_iterator)
+            {
+                const auto empty_range = B();
+                const auto single_nul_character(B(0));
+                const auto non_empty_range = B('a', 'b', 'c');
+                const auto non_empty_range_containing_nul_character = B('d', 'e', 0, 'f');
+
+                CHECK(asciz(empty_range.begin(), empty_range.end()), B(0));
+                CHECK(asciz(single_nul_character.begin(), single_nul_character.end()), B(0, 0));
+                CHECK(asciz(non_empty_range.begin(), non_empty_range.end()), B('a', 'b', 'c', 0));
+                CHECK(asciz(non_empty_range_containing_nul_character.begin(), non_empty_range_containing_nul_character.end()), B('d', 'e', 0, 'f', 0));
+            }
+
+        BOOST_AUTO_TEST_SUITE_END()
+
         BOOST_AUTO_TEST_SUITE(byte)
 
             BOOST_AUTO_TEST_CASE(single_byte)

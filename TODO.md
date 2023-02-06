@@ -10,7 +10,6 @@ lzasm: a runtime assembler
     * Automatically build and run tests (what operating systems? what compilers?)
     * Run `reuse lint` to ensure we still comply with the REUSE specification
 * Wish list, no particular version
-  * Directive to define zero terminated string, like .asciz in gas
   * Better exception messages
     * Include symbol name if applicable (e.g. "Undefined symbol 'symbol name'" rather than just "Undefined symbol")
     * Include position information if applicable (location counter / fixup location)

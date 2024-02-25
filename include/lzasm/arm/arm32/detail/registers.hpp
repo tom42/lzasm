@@ -88,27 +88,27 @@ constexpr writeback_low_reg operator ! (const low_reg r)
     return writeback_low_reg(r);
 }
 
-constexpr low_reg r0(0);
-constexpr low_reg r1(1);
-constexpr low_reg r2(2);
-constexpr low_reg r3(3);
-constexpr low_reg r4(4);
-constexpr low_reg r5(5);
-constexpr low_reg r6(6);
-constexpr low_reg r7(7);
-constexpr reg     r8(8);
-constexpr reg     r9(9);
-constexpr reg     r10(10);
-constexpr reg     r11(11);
-constexpr reg     r12(12);
-constexpr reg_sp  r13;
-constexpr reg_lr  r14;
-constexpr reg_pc  r15;
+inline constexpr low_reg r0(0);
+inline constexpr low_reg r1(1);
+inline constexpr low_reg r2(2);
+inline constexpr low_reg r3(3);
+inline constexpr low_reg r4(4);
+inline constexpr low_reg r5(5);
+inline constexpr low_reg r6(6);
+inline constexpr low_reg r7(7);
+inline constexpr reg     r8(8);
+inline constexpr reg     r9(9);
+inline constexpr reg     r10(10);
+inline constexpr reg     r11(11);
+inline constexpr reg     r12(12);
+inline constexpr reg_sp  r13;
+inline constexpr reg_lr  r14;
+inline constexpr reg_pc  r15;
 
 // Register aliases
-constexpr reg_sp  sp;
-constexpr reg_lr  lr;
-constexpr reg_pc  pc;
+inline constexpr reg_sp  sp;
+inline constexpr reg_lr  lr;
+inline constexpr reg_pc  pc;
 
 }
 

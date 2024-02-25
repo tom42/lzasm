@@ -24,12 +24,12 @@ namespace detail
 {
 
 // max_address is what we need for the target CPU, so we don't derive its value from some type.
-constexpr address_t max_address = 0xffffffff;
+inline constexpr address_t max_address = 0xffffffff;
 
 // Maximum alignment, e.g. for align directive.
 // More than 31 is pointless, since 1 << 32 is 4GB on one hand, and on the other hand
 // may result in undefined behavior when using 32 bit types.
-constexpr auto max_alignment = 31;
+inline constexpr auto max_alignment = 31;
 
 }
 

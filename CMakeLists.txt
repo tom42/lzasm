@@ -76,6 +76,7 @@ endif()
 ################################################################################
 
 if(IS_MAIN_PROJECT)
+  include(GNUInstallDirs)
 
   # Install
   # From https://stackoverflow.com/questions/47718485/install-and-export-interface-only-library-cmake
@@ -88,24 +89,24 @@ if(IS_MAIN_PROJECT)
   install(
     TARGETS lzasm
     EXPORT lzasmTargets
-    LIBRARY DESTINATION lib COMPONENT Runtime
-    ARCHIVE DESTINATION lib COMPONENT Development
-    RUNTIME DESTINATION bin COMPONENT Runtime
-    PUBLIC_HEADER DESTINATION include COMPONENT Development
-    BUNDLE DESTINATION bin COMPONENT Runtime)
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT Runtime
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT Development
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT Runtime
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT Development
+    BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT Runtime)
 
   include(CMakePackageConfigHelpers)
   configure_package_config_file(
     "${PROJECT_SOURCE_DIR}/cmake/lzasmConfig.cmake.in"
     "${PROJECT_BINARY_DIR}/lzasmConfig.cmake"
-    INSTALL_DESTINATION lib/cmake/lzasm)
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lzasm)
 
-  install(EXPORT lzasmTargets DESTINATION lib/cmake/lzasm)
+  install(EXPORT lzasmTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lzasm)
   install(
     FILES "${PROJECT_BINARY_DIR}/lzasmConfigVersion.cmake"
           "${PROJECT_BINARY_DIR}/lzasmConfig.cmake"
-    DESTINATION lib/cmake/lzasm)
-  install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lzasm)
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
   # Uninstall
   # From https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake,

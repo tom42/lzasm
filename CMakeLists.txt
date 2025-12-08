@@ -3,7 +3,7 @@
 # lzasm: a runtime assembler
 
 cmake_minimum_required(VERSION 3.17.3)
-project(lzasm VERSION 0.1.0 LANGUAGES CXX)
+project(lzasm VERSION 0.5.0 LANGUAGES CXX)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   set(IS_MAIN_PROJECT TRUE)
